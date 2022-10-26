@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap");
+
+* {
+  font-family: Rajdhani, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #b8b8ff;
+}
+
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 100%;
+  height: auto;
+  background-color: #b8b8ff;
+}
+
+.header_container_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-top: 5rem;
+}
+
+.header_container h2 {
+  font-size: 3rem;
+  text-align: center;
+  background-color: #b8b8ff;
+  border-radius: 1rem;
+  color: #fff;
+  padding: 1rem;
+  padding: 1rem;
+}
+
+.header_container_center form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  height: auto;
+  width: auto;
+}
+
+.input {
+  width: 10rem;
+  height: 5rem;
+  padding: 1rem;
+  margin: 1rem;
+  outline: none;
+  font-size: 2rem;
+  background-color: #b8b8ff;
+  border: 0.2rem solid #fff;
+  border-radius: 1rem;
+  color: #fff;
+  transition: border 1s;
+}
+
+.header_container_center form button {
+  background-color: #b8b8ff;
+  border: 0.2rem solid #fff;
+  border-radius: 1rem;
+  color: #fff;
+  width: 10rem;
+  height: 5rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.colors_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  height: 100%;
+  margin-top: 3rem;
+  border-radius: 1rem;
+}
+
+.color {
+  height: 20rem;
+  width: 90%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 0.3rem solid #000;
+  border-radius: 1rem;
+}
+
+.color p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.color h2 {
+  font-size: 2rem;
+}
+
+.textlight {
+  color: #fff;
+}
+
+.input.error {
+  border: 0.2rem solid rgb(255, 0, 0);
+  transition: border 1s;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header_container {
+    justify-content: flex-start;
+  }
+
+  .header_container_center {
+    margin: 3rem;
+  }
+
+  .color {
+    height: 20rem;
+    width: 20rem;
+    margin: 1rem;
+  }
+}

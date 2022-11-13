@@ -30,7 +30,7 @@ I made a web application that will return a palette of colors depending on the h
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Color%20generator%20app%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Color%20Generator%20App%20Page`
 
 ## Video
 

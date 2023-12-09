@@ -16,21 +16,9 @@ I made a web application that will return a palette of colors depending on the h
 1. REACT JS
 2. CSS
 
-## Galery
-
-![color-generator-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/reactcolorgenerator-0.jpg)
-
-![color-generator-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/reactcolorgenerator-1.jpg)
-
-![color-generator-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/reactcolorgenerator-2.jpg)
-
-![color-generator-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/reactcolorgenerator-3.jpg)
-
-![color-generator-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/reactcolorgenerator-4.jpg)
-
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Color%20Generator%20App%20Page`
+[`https://www.diegolibonati.com.ar/#/project/20`](https://www.diegolibonati.com.ar/#/project/20)
 
 ## Video
 

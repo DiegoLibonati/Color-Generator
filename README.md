@@ -14,7 +14,8 @@ I made a web application that will return a palette of colors depending on the h
 ## Technologies used
 
 1. REACT JS
-2. CSS
+2. Typescript
+3. CSS
 
 ## Portfolio Link
 

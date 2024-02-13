@@ -1,19 +1,25 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { ColorProps } from "../entities/entities";
 
-export const Color = ({ rgb, weight, index, hexColor, inputNumber }) => {
+export const Color = ({
+  rgb,
+  weight,
+  index,
+  hexColor,
+  inputNumber,
+}: ColorProps): JSX.Element => {
+  console.log(rgb);
+  const [alert, setAlert] = useState(false);
   const rgbWithoutArray = rgb.join(",");
   const finalHexColor = `#${hexColor}`;
-  const [alert, setAlert] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setAlert(false);
     }, 3000);
 
-    return () => {
-      clearTimeout(timeout);
-    };
+    return () => clearTimeout(timeout);
   }, [alert]);
 
   return (

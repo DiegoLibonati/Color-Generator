@@ -1,4 +1,4 @@
-# Color-Generator-App-Page
+# Color Generator
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ I made a web application that will return a palette of colors depending on the h
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/20`](https://www.diegolibonati.com.ar/#/project/20)
+[`https://www.diegolibonati.com.ar/#/project/Color-Generator`](https://www.diegolibonati.com.ar/#/project/Color-Generator)
 
 ## Video
 

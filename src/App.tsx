@@ -1,23 +1,24 @@
 import { useState } from "react";
 import Values from "values.js";
+
 import { Color } from "./components/Color";
+
 import { FormDataColor, FormDataError } from "./entities/entities";
+
 import "./App.css";
 
 function App(): JSX.Element {
-  const [colorArray, setColorArray] = useState<Values[]>([]);
+  const [colors, setColors] = useState<Values[]>([]);
   const [form, setForm] = useState<FormDataColor>({
     inputColor: "#ffffff",
-    inputNumber: 10,
   });
   const [errors, setErrors] = useState<FormDataError>({
     errorColor: false,
-    errorNumber: false,
   });
 
-  const { inputColor, inputNumber } = form;
+  const { inputColor } = form;
 
-  const { errorColor, errorNumber } = errors;
+  const { errorColor } = errors;
 
   const handleInputValue: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
@@ -30,24 +31,16 @@ function App(): JSX.Element {
 
     try {
       const color = new Values(inputColor);
-      const palleteColor = color.all(inputNumber);
+      const palleteColors = color.all();
+
       setErrors({
         errorColor: false,
-        errorNumber: false,
       });
-      setColorArray(palleteColor);
+      setColors(palleteColors);
     } catch (e) {
       if (e instanceof Error) {
         setErrors({
           errorColor: true,
-          errorNumber: false,
-        });
-      }
-
-      if (e instanceof RangeError) {
-        setErrors({
-          errorColor: false,
-          errorNumber: true,
         });
       }
     }
@@ -60,32 +53,32 @@ function App(): JSX.Element {
           <h2>Color Generator</h2>
           <form onSubmit={(e) => handleSubmit(e)}>
             <input
+              id="inputColor"
               type="text"
               value={inputColor}
               name="inputColor"
               className={`input ${errorColor && "error"}`}
               onChange={(e) => handleInputValue(e)}
             ></input>
-            <input
-              type="number"
-              className={`input ${errorNumber && "error"}`}
-              value={inputNumber}
-              name="inputNumber"
-              onChange={(e) => handleInputValue(e)}
-            ></input>
-            <button type="submit">GET COLORS</button>
+            <button type="submit" aria-label="get colors">
+              GET COLORS
+            </button>
           </form>
         </article>
       </section>
 
       <section className="colors_container">
-        {colorArray.map((color, index) => (
+        {colors.map((color, index) => (
           <Color
-            {...color}
             key={index * 50}
-            index={index}
-            hexColor={color.hex}
-            inputNumber={inputNumber}
+            hexColor={`#${color.hex}`}
+            weight={color.weight}
+            textLight={
+              index >
+              colors.length -
+                1 -
+                colors.indexOf(colors.find((color) => color.weight === 0)!)
+            }
           ></Color>
         ))}
       </section>

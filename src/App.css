@@ -114,6 +114,7 @@ body {
   margin-bottom: 1rem;
   border: 0.3rem solid #000;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 .color p {

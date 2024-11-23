@@ -1,18 +1,17 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { ColorProps } from "../entities/entities";
+import { useState, useEffect } from "react";
+
+interface ColorProps {
+  weight: number;
+  hexColor: string;
+  textLight: boolean;
+}
 
 export const Color = ({
-  rgb,
   weight,
-  index,
   hexColor,
-  inputNumber,
+  textLight,
 }: ColorProps): JSX.Element => {
-  console.log(rgb);
   const [alert, setAlert] = useState(false);
-  const rgbWithoutArray = rgb.join(",");
-  const finalHexColor = `#${hexColor}`;
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -24,15 +23,15 @@ export const Color = ({
 
   return (
     <article
-      className={`color ${index > inputNumber && "textlight"}`}
-      style={{ backgroundColor: `rgb(${rgbWithoutArray})` }}
+      className={`color ${textLight && "textlight"}`}
+      style={{ backgroundColor: hexColor }}
       onClick={() => {
         setAlert(true);
-        navigator.clipboard.writeText(finalHexColor);
+        navigator.clipboard.writeText(hexColor);
       }}
     >
       <p>{weight}%</p>
-      <h2>{finalHexColor}</h2>
+      <h2>{hexColor}</h2>
       {alert && <p>Copy to clipboard</p>}
     </article>
   );

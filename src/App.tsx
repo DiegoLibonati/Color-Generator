@@ -47,9 +47,9 @@ function App(): JSX.Element {
   };
 
   return (
-    <main className="main_container">
-      <section className="header_container">
-        <article className="header_container_center">
+    <main className="main">
+      <section className="header">
+        <article className="header__wrapper">
           <h2>Color Generator</h2>
           <form onSubmit={(e) => handleSubmit(e)}>
             <input
@@ -67,7 +67,7 @@ function App(): JSX.Element {
         </article>
       </section>
 
-      <section className="colors_container">
+      <section className="colors">
         {colors.map((color, index) => (
           <Color
             key={index * 50}

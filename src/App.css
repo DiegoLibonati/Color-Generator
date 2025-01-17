@@ -1,24 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap");
-
-* {
-  font-family: Rajdhani, Arial, sans-serif;
-  padding: 0;
-  margin: 0;
-  font-size: 10px;
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  background-color: #b8b8ff;
-}
-
-.main_container {
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,17 +7,16 @@ body {
   width: 100%;
 }
 
-.header_container {
+.header {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
   width: 100%;
   height: auto;
-  background-color: #b8b8ff;
 }
 
-.header_container_center {
+.header__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,23 +24,23 @@ body {
   width: auto;
   height: auto;
   padding: 1rem;
-  background-color: #fff;
+  background-color: var(--white-color);
   border-radius: 1rem;
   margin: 1rem;
   margin-top: 5rem;
 }
 
-.header_container h2 {
+.header__wrapper h2 {
   font-size: 3rem;
   text-align: center;
-  background-color: #b8b8ff;
+  background-color: var(--primary-color);
   border-radius: 1rem;
-  color: #fff;
+  color: var(--white-color);
   padding: 1rem;
   padding: 1rem;
 }
 
-.header_container_center form {
+.header__wrapper form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,18 +56,18 @@ body {
   margin: 1rem;
   outline: none;
   font-size: 2rem;
-  background-color: #b8b8ff;
-  border: 0.2rem solid #fff;
+  background-color: var(--primary-color);
+  border: 0.2rem solid var(--white-color);
   border-radius: 1rem;
-  color: #fff;
+  color: var(--white-color);
   transition: border 1s;
 }
 
-.header_container_center form button {
-  background-color: #b8b8ff;
-  border: 0.2rem solid #fff;
+.header__wrapper form button {
+  background-color: var(--primary-color);
+  border: 0.2rem solid var(--white-color);
   border-radius: 1rem;
-  color: #fff;
+  color: var(--white-color);
   width: 10rem;
   height: 5rem;
   padding: 1rem;
@@ -97,7 +76,7 @@ body {
   cursor: pointer;
 }
 
-.colors_container {
+.colors {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +91,7 @@ body {
   width: 90%;
   padding: 1rem;
   margin-bottom: 1rem;
-  border: 0.3rem solid #000;
+  border: 0.3rem solid var(--black-color);
   border-radius: 1rem;
   cursor: pointer;
 }
@@ -126,21 +105,21 @@ body {
   font-size: 2rem;
 }
 
-.textlight {
+.color--textlight {
   color: #fff;
 }
 
 .input.error {
-  border: 0.2rem solid rgb(255, 0, 0);
+  border: 0.2rem solid var(--red-color);
   transition: border 1s;
 }
 
 @media only screen and (min-width: 1024px) {
-  .header_container {
+  .header {
     justify-content: flex-start;
   }
 
-  .header_container_center {
+  .header__wrapper {
     margin: 3rem;
   }
 

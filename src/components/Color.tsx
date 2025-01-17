@@ -23,7 +23,7 @@ export const Color = ({
 
   return (
     <article
-      className={`color ${textLight && "textlight"}`}
+      className={`color ${textLight && "color--textlight"}`}
       style={{ backgroundColor: hexColor }}
       onClick={() => {
         setAlert(true);

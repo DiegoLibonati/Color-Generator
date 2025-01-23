@@ -1,0 +1,31 @@
+.color {
+  height: 20rem;
+  width: 90%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 0.3rem solid var(--black-color);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.color__weight,
+.color__copy-clipboard {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.color__hex-color {
+  font-size: 2rem;
+}
+
+.color--textlight {
+  color: #fff;
+}
+
+@media only screen and (min-width: 1024px) {
+  .color {
+    height: 20rem;
+    width: 20rem;
+    margin: 1rem;
+  }
+}

@@ -1,4 +1,4 @@
-.main {
+.main-app {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.header {
+.header-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@
   height: auto;
 }
 
-.header__wrapper {
+.header-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@
   margin-top: 5rem;
 }
 
-.header__wrapper h2 {
+.header-content__title {
   font-size: 3rem;
   text-align: center;
   background-color: var(--primary-color);
@@ -40,7 +40,7 @@
   padding: 1rem;
 }
 
-.header__wrapper form {
+.header-content__form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +49,7 @@
   width: auto;
 }
 
-.input {
+.header-content__form-input {
   width: 10rem;
   height: 5rem;
   padding: 1rem;
@@ -63,7 +63,7 @@
   transition: border 1s;
 }
 
-.header__wrapper form button {
+.header-content__form-submit {
   background-color: var(--primary-color);
   border: 0.2rem solid var(--white-color);
   border-radius: 1rem;
@@ -86,46 +86,17 @@
   border-radius: 1rem;
 }
 
-.color {
-  height: 20rem;
-  width: 90%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 0.3rem solid var(--black-color);
-  border-radius: 1rem;
-  cursor: pointer;
-}
-
-.color p {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.color h2 {
-  font-size: 2rem;
-}
-
-.color--textlight {
-  color: #fff;
-}
-
-.input.error {
+.header-content__form-input--error {
   border: 0.2rem solid var(--red-color);
   transition: border 1s;
 }
 
 @media only screen and (min-width: 1024px) {
-  .header {
+  .header-wrapper {
     justify-content: flex-start;
   }
 
-  .header__wrapper {
+  .header-content {
     margin: 3rem;
-  }
-
-  .color {
-    height: 20rem;
-    width: 20rem;
-    margin: 1rem;
   }
 }

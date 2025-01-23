@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import "./Color.css";
+
 interface ColorProps {
   weight: number;
   hexColor: string;
@@ -30,9 +32,9 @@ export const Color = ({
         navigator.clipboard.writeText(hexColor);
       }}
     >
-      <p>{weight}%</p>
-      <h2>{hexColor}</h2>
-      {alert && <p>Copy to clipboard</p>}
+      <p className="color__weight">{weight}%</p>
+      <h2 className="color__hex-color">{hexColor}</h2>
+      {alert && <p className="color__copy-clipboard">Copy to clipboard</p>}
     </article>
   );
 };

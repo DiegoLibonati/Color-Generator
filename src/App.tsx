@@ -47,20 +47,29 @@ function App(): JSX.Element {
   };
 
   return (
-    <main className="main">
-      <section className="header">
-        <article className="header__wrapper">
-          <h2>Color Generator</h2>
-          <form onSubmit={(e) => handleSubmit(e)}>
+    <main className="main-app">
+      <section className="header-wrapper">
+        <article className="header-content">
+          <h2 className="header-content__title">Color Generator</h2>
+          <form
+            onSubmit={(e) => handleSubmit(e)}
+            className="header-content__form"
+          >
             <input
               id="inputColor"
               type="text"
               value={inputColor}
               name="inputColor"
-              className={`input ${errorColor && "error"}`}
+              className={`header-content__form-input ${
+                errorColor && "header-content__form-input--error"
+              }`}
               onChange={(e) => handleInputValue(e)}
             ></input>
-            <button type="submit" aria-label="get colors">
+            <button
+              type="submit"
+              className="header-content__form-submit"
+              aria-label="get colors"
+            >
               GET COLORS
             </button>
           </form>

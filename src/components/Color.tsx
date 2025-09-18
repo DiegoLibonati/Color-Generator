@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import "./Color.css";
+import "@src/components/Color.css";
 
 interface ColorProps {
   weight: number;

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Values from "values.js";
 
-import { Color } from "./components/Color";
+import { Color } from "@src/components/Color";
 
-import { FormDataColor, FormDataError } from "./entities/entities";
+import { FormDataColor, FormDataError } from "@src/entities/entities";
 
-import "./App.css";
+import "@src/App.css";
 
 function App(): JSX.Element {
   const [colors, setColors] = useState<Values[]>([]);

@@ -3,8 +3,8 @@ import { act } from "react";
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { Color } from "./Color";
-import { rgbToHex } from "../helpers/rgbToHex";
+import { Color } from "@src/components/Color";
+import { rgbToHex } from "@src/helpers/rgbToHex";
 
 type RenderComponent = {
   props: {

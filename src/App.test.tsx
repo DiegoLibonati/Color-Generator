@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import App from "./App";
+import App from "@src/App";
 
 type RenderComponent = {
   container: HTMLElement;

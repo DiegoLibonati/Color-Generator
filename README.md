@@ -51,6 +51,7 @@ I made a web application that will return a palette of colors depending on the h
 "ts-jest": "^29.2.5"
 "ts-node": "^10.9.2"
 "typescript": "^4.9.5"
+"vite": "^7.1.5"
 ```
 
 ## Portfolio Link

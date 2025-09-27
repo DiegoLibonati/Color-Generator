@@ -22,6 +22,7 @@ I made a web application that will return a palette of colors depending on the h
 1. REACT JS
 2. Typescript
 3. CSS
+4. Vite
 
 ## Libraries used
 

@@ -1,0 +1,96 @@
+import { useState } from "react";
+import Values from "values.js";
+
+import { Color } from "@src/components/Color/Color";
+
+import { FormDataColor, FormDataError } from "@src/entities/forms";
+
+import "@src/pages/ColorPage/ColorPage.css";
+
+export const ColorPage = () => {
+  const [colors, setColors] = useState<Values[]>([]);
+  const [form, setForm] = useState<FormDataColor>({
+    inputColor: "#ffffff",
+  });
+  const [errors, setErrors] = useState<FormDataError>({
+    errorColor: false,
+  });
+
+  const { inputColor } = form;
+
+  const { errorColor } = errors;
+
+  const handleInputValue: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const { name, value } = e.target;
+
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+
+    try {
+      const color = new Values(inputColor);
+      const palleteColors = color.all();
+
+      setErrors({
+        errorColor: false,
+      });
+      setColors(palleteColors);
+    } catch (e) {
+      if (e instanceof Error) {
+        setErrors({
+          errorColor: true,
+        });
+      }
+    }
+  };
+
+  return (
+    <main className="color-page">
+      <section className="header-wrapper">
+        <article className="header-content">
+          <h2 className="header-content__title">Color Generator</h2>
+          <form
+            onSubmit={(e) => handleSubmit(e)}
+            className="header-content__form"
+          >
+            <input
+              id="inputColor"
+              type="text"
+              value={inputColor}
+              name="inputColor"
+              className={`header-content__form-input ${
+                errorColor && "header-content__form-input--error"
+              }`}
+              onChange={(e) => handleInputValue(e)}
+            ></input>
+            <button
+              type="submit"
+              className="header-content__form-submit"
+              aria-label="get colors"
+            >
+              GET COLORS
+            </button>
+          </form>
+        </article>
+      </section>
+
+      <section className="colors">
+        {colors.map((color, index) => (
+          <Color
+            key={index * 50}
+            hexColor={`#${color.hex}`}
+            weight={color.weight}
+            textLight={
+              index >
+              colors.length -
+                1 -
+                colors.indexOf(colors.find((color) => color.weight === 0)!)
+            }
+          ></Color>
+        ))}
+      </section>
+    </main>
+  );
+};

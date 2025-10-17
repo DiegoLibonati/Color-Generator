@@ -1,5 +1,3 @@
-// Types
-
 export type FormDataColor = {
   inputColor: string;
 };

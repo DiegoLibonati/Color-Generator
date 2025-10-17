@@ -3,15 +3,14 @@ import { act } from "react";
 import { screen, render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { Color } from "@src/components/Color";
+import { ColorProps } from "@src/entities/props";
+
+import { Color } from "@src/components/Color/Color";
+
 import { rgbToHex } from "@src/helpers/rgbToHex";
 
 type RenderComponent = {
-  props: {
-    weight: number;
-    hexColor: string;
-    textLight: boolean;
-  };
+  props: ColorProps;
   container: HTMLElement;
 };
 

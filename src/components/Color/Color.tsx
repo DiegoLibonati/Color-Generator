@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 
-import "@src/components/Color.css";
+import { ColorProps } from "@src/entities/props";
 
-interface ColorProps {
-  weight: number;
-  hexColor: string;
-  textLight: boolean;
-}
+import "@src/components/Color/Color.css";
 
 export const Color = ({
   weight,

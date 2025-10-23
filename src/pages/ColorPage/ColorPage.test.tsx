@@ -24,7 +24,7 @@ describe("ColorPage.tsx", () => {
         name: /color generator/i,
       });
 
-      const form = container.querySelector("form") as HTMLFormElement;
+      const form = container.querySelector<HTMLFormElement>("form");
       const inputColor = screen.getByRole("textbox");
       const getColorsButton = screen.getByRole("button", {
         name: /get colors/i,
@@ -35,7 +35,7 @@ describe("ColorPage.tsx", () => {
       expect(inputColor).toBeInTheDocument();
       expect(getColorsButton).toBeInTheDocument();
 
-      const sectionColors = container.querySelector(".colors");
+      const sectionColors = container.querySelector<HTMLElement>(".colors");
 
       expect(sectionColors).toBeInTheDocument();
       expect(sectionColors?.children).toHaveLength(0);
@@ -53,14 +53,15 @@ describe("ColorPage.tsx", () => {
       await user.clear(inputColor);
       await user.keyboard("#09f");
 
-      const sectionColors = container.querySelector(".colors");
+      const sectionColors = container.querySelector<HTMLElement>(".colors");
 
       expect(sectionColors).toBeInTheDocument();
       expect(sectionColors?.children).toHaveLength(0);
 
       await user.click(getColorsButton);
 
-      const sectionColorsRefresh = container.querySelector(".colors");
+      const sectionColorsRefresh =
+        container.querySelector<HTMLElement>(".colors");
 
       expect(sectionColorsRefresh?.children).toHaveLength(21);
     });
@@ -73,7 +74,7 @@ describe("ColorPage.tsx", () => {
       await user.clear(inputColor);
       await user.keyboard("asdasdasd");
 
-      const sectionColors = container.querySelector(".colors");
+      const sectionColors = container.querySelector<HTMLElement>(".colors");
 
       expect(sectionColors).toBeInTheDocument();
       expect(sectionColors?.children).toHaveLength(0);
@@ -91,20 +92,21 @@ describe("ColorPage.tsx", () => {
       await user.clear(inputColor);
       await user.keyboard("#09f");
 
-      const sectionColors = container.querySelector(".colors");
+      const sectionColors = container.querySelector<HTMLElement>(".colors");
 
       expect(sectionColors).toBeInTheDocument();
       expect(sectionColors?.children).toHaveLength(0);
 
       await user.click(getColorsButton);
 
-      const sectionColorsRefresh = container.querySelector(
-        ".colors"
-      ) as HTMLElement;
+      const sectionColorsRefresh =
+        container.querySelector<HTMLElement>(".colors");
 
       expect(sectionColorsRefresh?.children).toHaveLength(21);
 
-      const colors = Array.from(document.querySelectorAll(".color"));
+      const colors = Array.from(
+        document.querySelectorAll<HTMLElement>(".color")
+      );
       const colorsWithTextLight = colors.filter((color) =>
         color.classList.contains("color--textlight")
       );

@@ -23,10 +23,20 @@ const Color = ({ weight, hexColor, textLight }: ColorProps) => {
         setAlert(true);
         navigator.clipboard.writeText(hexColor);
       }}
+      role="button"
+      tabIndex={0}
+      aria-label={`Copy ${hexColor} to clipboard`}
+      aria-pressed={alert}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          setAlert(true);
+          navigator.clipboard.writeText(hexColor);
+        }
+      }}
     >
       <p className="color__weight">{weight}%</p>
       <h2 className="color__hex-color">{hexColor}</h2>
-      {alert && <p className="color__copy-clipboard">Copy to clipboard</p>}
+      {alert && <p className="color__copy-clipboard">Copied to clipboard</p>}
     </article>
   );
 };

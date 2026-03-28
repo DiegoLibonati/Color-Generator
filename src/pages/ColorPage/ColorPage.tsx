@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Values from "values.js";
 
-import { Color } from "@src/components/Color/Color";
+import Color from "@/components/Color/Color";
 
-import { FormDataColor, FormDataError } from "@src/entities/forms";
+import { FormDataColor, FormDataError } from "@/types/forms";
 
-import "@src/pages/ColorPage/ColorPage.css";
+import "@/pages/ColorPage/ColorPage.css";
 
-export const ColorPage = () => {
+const ColorPage = () => {
   const [colors, setColors] = useState<Values[]>([]);
   const [form, setForm] = useState<FormDataColor>({
     inputColor: "#ffffff",
@@ -51,10 +51,7 @@ export const ColorPage = () => {
       <section className="header-wrapper">
         <article className="header-content">
           <h2 className="header-content__title">Color Generator</h2>
-          <form
-            onSubmit={(e) => handleSubmit(e)}
-            className="header-content__form"
-          >
+          <form onSubmit={(e) => handleSubmit(e)} className="header-content__form">
             <input
               id="inputColor"
               type="text"
@@ -65,11 +62,7 @@ export const ColorPage = () => {
               }`}
               onChange={(e) => handleInputValue(e)}
             ></input>
-            <button
-              type="submit"
-              className="header-content__form-submit"
-              aria-label="get colors"
-            >
+            <button type="submit" className="header-content__form-submit" aria-label="get colors">
               GET COLORS
             </button>
           </form>
@@ -84,9 +77,7 @@ export const ColorPage = () => {
             weight={color.weight}
             textLight={
               index >
-              colors.length -
-                1 -
-                colors.indexOf(colors.find((color) => color.weight === 0)!)
+              colors.length - 1 - colors.indexOf(colors.find((color) => color.weight === 0)!)
             }
           ></Color>
         ))}
@@ -94,3 +85,5 @@ export const ColorPage = () => {
     </main>
   );
 };
+
+export default ColorPage;

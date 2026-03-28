@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 
-import { ColorProps } from "@src/entities/props";
+import { ColorProps } from "@/types/props";
 
-import "@src/components/Color/Color.css";
+import "@/components/Color/Color.css";
 
-export const Color = ({
-  weight,
-  hexColor,
-  textLight,
-}: ColorProps): JSX.Element => {
+const Color = ({ weight, hexColor, textLight }: ColorProps) => {
   const [alert, setAlert] = useState(false);
 
   useEffect(() => {
@@ -34,3 +30,5 @@ export const Color = ({
     </article>
   );
 };
+
+export default Color;

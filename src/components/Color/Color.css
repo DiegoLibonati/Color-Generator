@@ -3,7 +3,7 @@
   width: 90%;
   padding: 1rem;
   margin-bottom: 1rem;
-  border: 0.3rem solid var(--black-color);
+  border: 0.3rem solid var(--color-black);
   border-radius: 1rem;
   cursor: pointer;
 }

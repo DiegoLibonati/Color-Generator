@@ -1,15 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Color Generator",
+  "short_name": "Color Generator",
+  "description": "I made a web application that will return a palette of colors depending on the hexadecimal color that the user passes in the input. It will also return the amount of colors specified in the number field, if we choose 10 it will return 10 colors in the color palette of that specific color.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

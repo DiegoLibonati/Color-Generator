@@ -1,6 +1,6 @@
-import { ColorPage } from "@src/pages/ColorPage/ColorPage";
+import ColorPage from "@/pages/ColorPage/ColorPage";
 
-function App(): JSX.Element {
+function App() {
   return <ColorPage></ColorPage>;
 }
 

@@ -8,9 +8,9 @@ type RenderPage = {
   container: HTMLElement;
 };
 
-jest.mock("values.js");
-
 const mockValues = Values as jest.Mock;
+
+jest.mock("values.js");
 
 const renderPage = (): RenderPage => {
   const { container } = render(<ColorPage />);

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import type { ColorProps } from "@/types/props";
@@ -6,10 +6,9 @@ import type { ColorProps } from "@/types/props";
 import Color from "@/components/Color/Color";
 
 type RenderComponent = {
+  container: HTMLElement;
   props: ColorProps;
 };
-
-let mockWriteText: jest.Mock;
 
 const renderComponent = (overrides?: Partial<ColorProps>): RenderComponent => {
   const props: ColorProps = {
@@ -19,19 +18,14 @@ const renderComponent = (overrides?: Partial<ColorProps>): RenderComponent => {
     ...overrides,
   };
 
-  render(<Color {...props} />);
+  const { container } = render(<Color {...props} />);
 
-  return { props };
+  return { container, props };
 };
 
 describe("Color", () => {
-  beforeEach(() => {
-    mockWriteText = jest.fn().mockResolvedValue(undefined);
-    Object.defineProperty(navigator, "clipboard", {
-      value: { writeText: mockWriteText },
-      writable: true,
-      configurable: true,
-    });
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it("should render the weight percentage", () => {
@@ -71,10 +65,11 @@ describe("Color", () => {
     expect(await screen.findByText("Copied to clipboard")).toBeInTheDocument();
   });
 
-  it("should call clipboard.writeText with the hex color on click", () => {
+  it("should write the hex color to clipboard on click", async () => {
+    const user = userEvent.setup();
     renderComponent();
-    fireEvent.click(screen.getByRole("button", { name: /Copy/i }));
-    expect(mockWriteText).toHaveBeenCalledWith("#ff0000");
+    await user.click(screen.getByRole("button", { name: /Copy/i }));
+    expect(await navigator.clipboard.readText()).toBe("#ff0000");
   });
 
   it("should show copied message after Enter key press", async () => {

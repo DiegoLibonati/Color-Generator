@@ -9,6 +9,8 @@ type RenderComponent = {
   props: ColorProps;
 };
 
+let mockWriteText: jest.Mock;
+
 const renderComponent = (overrides?: Partial<ColorProps>): RenderComponent => {
   const props: ColorProps = {
     hexColor: "#ff0000",
@@ -22,13 +24,11 @@ const renderComponent = (overrides?: Partial<ColorProps>): RenderComponent => {
   return { props };
 };
 
-let writeTextMock: jest.Mock;
-
 describe("Color", () => {
   beforeEach(() => {
-    writeTextMock = jest.fn().mockResolvedValue(undefined);
+    mockWriteText = jest.fn().mockResolvedValue(undefined);
     Object.defineProperty(navigator, "clipboard", {
-      value: { writeText: writeTextMock },
+      value: { writeText: mockWriteText },
       writable: true,
       configurable: true,
     });
@@ -74,7 +74,7 @@ describe("Color", () => {
   it("should call clipboard.writeText with the hex color on click", () => {
     renderComponent();
     fireEvent.click(screen.getByRole("button", { name: /Copy/i }));
-    expect(writeTextMock).toHaveBeenCalledWith("#ff0000");
+    expect(mockWriteText).toHaveBeenCalledWith("#ff0000");
   });
 
   it("should show copied message after Enter key press", async () => {

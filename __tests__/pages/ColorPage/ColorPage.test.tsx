@@ -4,13 +4,13 @@ import Values from "values.js";
 
 import ColorPage from "@/pages/ColorPage/ColorPage";
 
-jest.mock("values.js");
-
-const MockValues = Values as jest.Mock;
-
 type RenderPage = {
   container: HTMLElement;
 };
+
+jest.mock("values.js");
+
+const mockValues = Values as jest.Mock;
 
 const renderPage = (): RenderPage => {
   const { container } = render(<ColorPage />);
@@ -18,9 +18,10 @@ const renderPage = (): RenderPage => {
 };
 
 describe("ColorPage", () => {
+  const mockValuesAll = jest.fn();
   beforeEach(() => {
-    MockValues.mockImplementation(() => ({
-      all: jest.fn().mockReturnValue([
+    mockValues.mockImplementation(() => ({
+      all: mockValuesAll.mockReturnValue([
         { hex: "ff0000", weight: 0 },
         { hex: "ff8888", weight: 50 },
       ]),
@@ -51,7 +52,7 @@ describe("ColorPage", () => {
   });
 
   it("should set aria-invalid on the input when submission fails", async () => {
-    MockValues.mockImplementationOnce(() => {
+    mockValues.mockImplementationOnce(() => {
       throw new Error("Invalid color");
     });
     const user = userEvent.setup();
@@ -66,7 +67,7 @@ describe("ColorPage", () => {
   it("should clear aria-invalid after a successful submission following an error", async () => {
     const user = userEvent.setup();
     renderPage();
-    MockValues.mockImplementationOnce(() => {
+    mockValues.mockImplementationOnce(() => {
       throw new Error("Invalid color");
     });
     await user.click(screen.getByRole("button", { name: /get colors/i }));

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-import { ColorProps } from "@/types/props";
+import type { JSX } from "react";
+import type { ColorProps } from "@/types/props";
 
 import "@/components/Color/Color.css";
 
-const Color = ({ weight, hexColor, textLight }: ColorProps) => {
+const Color = ({ weight, hexColor, textLight }: ColorProps): JSX.Element => {
   const [alert, setAlert] = useState(false);
 
   useEffect(() => {
@@ -12,7 +13,9 @@ const Color = ({ weight, hexColor, textLight }: ColorProps) => {
       setAlert(false);
     }, 3000);
 
-    return () => clearTimeout(timeout);
+    return (): void => {
+      clearTimeout(timeout);
+    };
   }, [alert]);
 
   return (
@@ -21,7 +24,7 @@ const Color = ({ weight, hexColor, textLight }: ColorProps) => {
       style={{ backgroundColor: hexColor }}
       onClick={() => {
         setAlert(true);
-        navigator.clipboard.writeText(hexColor);
+        void navigator.clipboard.writeText(hexColor);
       }}
       role="button"
       tabIndex={0}
@@ -30,7 +33,7 @@ const Color = ({ weight, hexColor, textLight }: ColorProps) => {
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           setAlert(true);
-          navigator.clipboard.writeText(hexColor);
+          void navigator.clipboard.writeText(hexColor);
         }
       }}
     >

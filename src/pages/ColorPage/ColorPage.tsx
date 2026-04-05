@@ -1,15 +1,17 @@
 import { useState } from "react";
 import Values from "values.js";
 
+import type { JSX } from "react";
+
 import Color from "@/components/Color/Color";
 
-import { FormDataColor, FormDataError } from "@/types/forms";
+import type { FormDataError } from "@/types/forms";
 
 import "@/pages/ColorPage/ColorPage.css";
 
-const ColorPage = () => {
+const ColorPage = (): JSX.Element => {
   const [colors, setColors] = useState<Values[]>([]);
-  const [form, setForm] = useState<FormDataColor>({
+  const [form, setForm] = useState({
     inputColor: "#ffffff",
   });
   const [errors, setErrors] = useState<FormDataError>({
@@ -26,7 +28,7 @@ const ColorPage = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: React.SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
     try {
@@ -52,7 +54,9 @@ const ColorPage = () => {
         <article className="header-content">
           <h2 className="header-content__title">Color Generator</h2>
           <form
-            onSubmit={(e) => handleSubmit(e)}
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
             className="header-content__form"
             aria-label="Generate color palette"
           >
@@ -64,7 +68,9 @@ const ColorPage = () => {
               className={`header-content__form-input ${
                 errorColor && "header-content__form-input--error"
               }`}
-              onChange={(e) => handleInputValue(e)}
+              onChange={(e) => {
+                handleInputValue(e);
+              }}
               aria-label="Hex color value"
               aria-invalid={errorColor}
               aria-describedby={errorColor ? "inputColor-error" : undefined}

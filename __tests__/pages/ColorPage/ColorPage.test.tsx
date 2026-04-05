@@ -4,9 +4,9 @@ import Values from "values.js";
 
 import ColorPage from "@/pages/ColorPage/ColorPage";
 
-type RenderPage = {
+interface RenderPage {
   container: HTMLElement;
-};
+}
 
 const mockValuesAll = jest.fn();
 

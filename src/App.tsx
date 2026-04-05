@@ -1,6 +1,8 @@
+import type { JSX } from "react";
+
 import ColorPage from "@/pages/ColorPage/ColorPage";
 
-function App() {
+function App(): JSX.Element {
   return <ColorPage></ColorPage>;
 }
 

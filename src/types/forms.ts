@@ -1,7 +1,7 @@
-export type FormDataColor = {
+export interface FormDataColor {
   inputColor: string;
-};
+}
 
-export type FormDataError = {
+export interface FormDataError {
   errorColor: boolean;
-};
+}

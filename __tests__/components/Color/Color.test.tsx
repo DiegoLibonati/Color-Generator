@@ -5,10 +5,10 @@ import type { ColorProps } from "@/types/props";
 
 import Color from "@/components/Color/Color";
 
-type RenderComponent = {
+interface RenderComponent {
   container: HTMLElement;
   props: ColorProps;
-};
+}
 
 const renderComponent = (overrides?: Partial<ColorProps>): RenderComponent => {
   const props: ColorProps = {

@@ -2,10 +2,9 @@ import { useState } from "react";
 import Values from "values.js";
 
 import type { JSX } from "react";
+import type { FormDataError } from "@/types/forms";
 
 import Color from "@/components/Color/Color";
-
-import type { FormDataError } from "@/types/forms";
 
 import "@/pages/ColorPage/ColorPage.css";
 

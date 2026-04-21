@@ -1,4 +1,4 @@
-# Color Generator
+# Paletto
 
 ## Educational Purpose
 
@@ -17,7 +17,13 @@ The application will open automatically at `http://localhost:3000`
 
 ## Description
 
-I made a web application that will return a palette of colors depending on the hexadecimal color that the user passes in the input. It will also return the amount of colors specified in the number field, if we choose 10 it will return 10 colors in the color palette of that specific color.
+**Paletto** is a web application that generates complete color palettes from a single hex color input. You enter any valid hex color code (e.g. `#3a86ff`) and the app produces a full tonal range for that color — from its darkest shades to its lightest tints — using the `values.js` library under the hood.
+
+Each color in the generated palette is displayed as a clickable card showing the hex code and its tonal weight. Clicking any card copies the hex value directly to your clipboard, making it easy to grab colors for use in design tools, CSS, or any other workflow. The text color on each card automatically adapts between light and dark to stay readable regardless of the background brightness.
+
+The interface is intentionally minimal: a single text input and a submit button. Enter your base color, hit "GET COLORS", and the full palette renders instantly. If the input is not a valid hex color, the field highlights with an error state so you know to correct it before trying again.
+
+Paletto is useful for designers and developers who need a quick way to explore the tonal spectrum of a color — whether for building design systems, generating CSS variables, picking accessible contrast pairs, or simply finding the right shade of a color without opening a full design tool.
 
 ## Technologies used
 
@@ -68,11 +74,7 @@ I made a web application that will return a palette of colors depending on the h
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/Color-Generator`](https://www.diegolibonati.com.ar/#/project/Color-Generator)
-
-## Video
-
-https://user-images.githubusercontent.com/99032604/199857575-1715dc82-653c-4eb7-a592-1bb1dbba54e5.mp4
+[`https://www.diegolibonati.com.ar/#/project/paletto`](https://www.diegolibonati.com.ar/#/project/paletto)
 
 ## Testing
 

@@ -6,9 +6,9 @@ import type { FormDataError } from "@/types/forms";
 
 import Color from "@/components/Color/Color";
 
-import "@/pages/ColorPage/ColorPage.css";
+import "@/pages/PalettoPage/PalettoPage.css";
 
-const ColorPage = (): JSX.Element => {
+const PalettoPage = (): JSX.Element => {
   const [colors, setColors] = useState<Values[]>([]);
   const [form, setForm] = useState({
     inputColor: "#ffffff",
@@ -48,10 +48,10 @@ const ColorPage = (): JSX.Element => {
   };
 
   return (
-    <main className="color-page" aria-label="Color Generator application">
+    <main className="paletto-page" aria-label="Paletto application">
       <section className="header-wrapper" aria-label="Color input">
         <article className="header-content">
-          <h2 className="header-content__title">Color Generator</h2>
+          <h2 className="header-content__title">Paletto</h2>
           <form
             onSubmit={(e) => {
               handleSubmit(e);
@@ -104,4 +104,4 @@ const ColorPage = (): JSX.Element => {
   );
 };
 
-export default ColorPage;
+export default PalettoPage;

@@ -1,9 +1,9 @@
 import type { JSX } from "react";
 
-import ColorPage from "@/pages/ColorPage/ColorPage";
+import PalettoPage from "@/pages/PalettoPage/PalettoPage";
 
 function App(): JSX.Element {
-  return <ColorPage></ColorPage>;
+  return <PalettoPage></PalettoPage>;
 }
 
 export default App;

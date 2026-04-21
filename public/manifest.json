@@ -1,7 +1,7 @@
 {
-  "name": "Color Generator",
-  "short_name": "Color Generator",
-  "description": "I made a web application that will return a palette of colors depending on the hexadecimal color that the user passes in the input. It will also return the amount of colors specified in the number field, if we choose 10 it will return 10 colors in the color palette of that specific color.",
+  "name": "Paletto",
+  "short_name": "Paletto",
+  "description": "Paletto is a web application that generates complete color palettes from a single hex color input.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

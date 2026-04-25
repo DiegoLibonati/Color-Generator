@@ -1,8 +1,7 @@
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import type { RenderResult } from "@testing-library/react";
-
 import type { ColorProps } from "@/types/props";
 
 import Color from "@/components/Color/Color";
@@ -98,23 +97,25 @@ describe("Color", () => {
       expect(screen.getByText("Copied to clipboard")).toBeInTheDocument();
     });
 
-    it("should show the copied to clipboard message after pressing Space", () => {
+    it("should show the copied to clipboard message after pressing Space", async () => {
+      const user = userEvent.setup();
       renderComponent();
-      fireEvent.keyDown(screen.getByRole("button"), { key: " " });
+      screen.getByRole("button").focus();
+      await user.keyboard(" ");
       expect(screen.getByText("Copied to clipboard")).toBeInTheDocument();
     });
 
     it("should hide the copied to clipboard message after 3 seconds", async () => {
-      const user = userEvent.setup();
+      jest.useFakeTimers();
+      const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
       renderComponent();
       await user.click(screen.getByRole("button"));
       expect(screen.getByText("Copied to clipboard")).toBeInTheDocument();
-      await waitFor(
-        () => {
-          expect(screen.queryByText("Copied to clipboard")).not.toBeInTheDocument();
-        },
-        { timeout: 5000 }
-      );
-    }, 10000);
+      act(() => {
+        jest.advanceTimersByTime(3000);
+      });
+      expect(screen.queryByText("Copied to clipboard")).not.toBeInTheDocument();
+      jest.useRealTimers();
+    });
   });
 });

@@ -6,15 +6,6 @@ This project was created primarily for **educational and learning purposes**.
 While it is well-structured and could technically be used in production, it is **not intended for commercialization**.  
 The main goal is to explore and demonstrate best practices, patterns, and technologies in software development.
 
-## Getting Started
-
-1. Clone the repository
-2. Navigate to the project folder
-3. Execute: `npm install`
-4. Execute: `npm run dev`
-
-The application will open automatically at `http://localhost:3000`
-
 ## Description
 
 **Paletto** is a web application that generates complete color palettes from a single hex color input. You enter any valid hex color code (e.g. `#3a86ff`) and the app produces a full tonal range for that color — from its darkest shades to its lightest tints — using the `values.js` library under the hood.
@@ -73,11 +64,20 @@ Paletto is useful for designers and developers who need a quick way to explore t
 "vite": "^7.1.6"
 ```
 
-## Portfolio Link
+## Getting Started
 
-[`https://www.diegolibonati.com.ar/#/project/paletto`](https://www.diegolibonati.com.ar/#/project/paletto)
+With the stack covered, follow these steps to run Paletto locally:
+
+1. Clone the repository
+2. Navigate to the project folder
+3. Execute: `npm install`
+4. Execute: `npm run dev`
+
+The application will open automatically at `http://localhost:3000`
 
 ## Testing
+
+Once the app is running locally, you can validate the codebase with the test suite:
 
 1. Navigate to the project folder
 2. Execute: `npm test`
@@ -88,7 +88,9 @@ For coverage report:
 npm run test:coverage
 ```
 
-## Security
+## Security Audit
+
+Beyond unit tests, the project includes tooling to inspect dependency health and overall code quality.
 
 ### npm audit
 
@@ -115,3 +117,7 @@ npm run doctor -- --verbose
 ## Known Issues
 
 None at the moment.
+
+## Portfolio Link
+
+[`https://www.diegolibonati.com.ar/#/project/paletto`](https://www.diegolibonati.com.ar/#/project/paletto)

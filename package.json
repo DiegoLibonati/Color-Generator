@@ -42,6 +42,7 @@
     "dev": "vite",
     "build": "tsc -p tsconfig.app.json && vite build",
     "preview": "vite preview",
+    "type-check": "tsc -p tsconfig.app.json --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "lint:all": "eslint src __tests__ --fix",

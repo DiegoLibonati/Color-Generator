@@ -70,8 +70,9 @@ With the stack covered, follow these steps to run Paletto locally:
 
 1. Clone the repository
 2. Navigate to the project folder
-3. Execute: `npm install`
-4. Execute: `npm run dev`
+3. Execute: `nvm use` (uses the Node version pinned in `.nvmrc`)
+4. Execute: `npm install`
+5. Execute: `npm run dev`
 
 The application will open automatically at `http://localhost:3000`
 
@@ -87,6 +88,51 @@ For coverage report:
 ```bash
 npm run test:coverage
 ```
+
+## Continuous Integration
+
+The repository ships with a **GitHub Actions** pipeline defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml). It runs automatically on every `push` and `pull_request` targeting the `main` branch.
+
+### Pipeline overview
+
+```
+                      ┌─── PR or push to main ───┐
+                      ▼                          ▼
+┌──────────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│   lint-and-audit     │─▶│      testing     │─▶│      build       │
+│ eslint · tsc check   │  │   jest (jsdom)   │  │   vite build     │
+└──────────────────────┘  └──────────────────┘  └──────────────────┘
+```
+
+### Validation jobs (run on every PR and push)
+
+1. **`lint-and-audit`** — installs dependencies with `npm ci`, then runs `npm run lint` (ESLint) and `npm run type-check` (`tsc -p tsconfig.app.json --noEmit`).
+2. **`testing`** — runs the Jest suite with `npm run test` after `lint-and-audit` succeeds.
+3. **`build`** — runs `npm run build` (TypeScript compile + Vite production bundle) after `testing` succeeds, acting as a smoke test that the project still builds end-to-end.
+
+All three jobs check out the repository, install Node using the version pinned in [`.nvmrc`](.nvmrc), enable the npm cache, and run `npm ci` for a clean, reproducible install.
+
+### Running the same checks locally
+
+```bash
+# lint-and-audit
+npm run lint
+npm run type-check
+
+# testing
+npm run test
+
+# build
+npm run build
+```
+
+### Where the build outputs live
+
+| Output                                    | Location                                           |
+| ----------------------------------------- | -------------------------------------------------- |
+| Validation logs (lint, type-check, tests) | **Actions** tab on GitHub                          |
+| Production bundle                         | Ephemeral, inside the `build` job runner (`dist/`) |
+| Local production bundle                   | `dist/` folder after `npm run build`               |
 
 ## Security Audit
 
